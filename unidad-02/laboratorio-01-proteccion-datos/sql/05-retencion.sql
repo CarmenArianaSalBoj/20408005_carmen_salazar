@@ -52,16 +52,3 @@ HAVING COUNT(*) >= 5
 ORDER BY 1, 2;
 
 
--- =====================================================
--- Actividad 6: Reto de reducción del riesgo
--- =====================================================
-
-SELECT
-    CASE
-        WHEN edad BETWEEN 18 AND 45 THEN '18-45'
-        ELSE '46+'
-    END AS rango_edad,
-    COUNT(*) AS total
-FROM public.clientes
-GROUP BY 1
-HAVING COUNT(*) >= 5;

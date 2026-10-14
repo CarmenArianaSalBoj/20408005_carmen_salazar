@@ -2,32 +2,25 @@
 -- =====================================================
 -- Actividad 4: Anonimización de datos
 
--- 1. Crear el esquema para los datos anonimizados.
-CREATE SCHEMA IF NOT EXISTS anonimizado;
+-- 1. Crear el rol
+CREATE ROLE analista NOLOGIN;
+-- 2. Conceder acceso al conjunto de datos analítico:
 
--- 2. Crear una tabla con datos generales,
--- excluyendo nombre, correo, teléfono y RFC.
-DROP TABLE IF EXISTS anonimizado.clientes;
+GRANT USAGE
+ON SCHEMA analitica
+TO analista;
 
-CREATE TABLE anonimizado.clientes AS
-SELECT
-    edad,
-    ciudad,
-    codigo_postal,
-    fecha_alta
-FROM public.clientes;
-
--- 3. Verificar los datos resultantes.
+GRANT SELECT
+ON analitica.clientes
+TO analista;
+-- 3. Verificar los permisos
 SELECT *
-FROM anonimizado.clientes;
+FROM analitica.clientes;
+-- 4. El acceso al mapa de correspondencia debe estar restringido:
 
--- 4. Comprobar el número de registros.
-SELECT COUNT(*) AS total_registros
-FROM anonimizado.clientes;
+SELECT *
+FROM pii.mapa_cliente;
+-- 5. También debe estar restringido el acceso directo a los datos originales:
 
--- 5. Verificar las columnas de la tabla.
-SELECT column_name, data_type
-FROM information_schema.columns
-WHERE table_schema = 'anonimizado'
-  AND table_name = 'clientes'
-ORDER BY ordinal_position;
+SELECT *
+FROM public.clientes;
