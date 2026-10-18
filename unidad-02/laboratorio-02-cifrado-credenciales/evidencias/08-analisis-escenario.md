@@ -1,59 +1,37 @@
-# ACTIVIDAD 8. Analizar un escenario de seguridad
+# Actividad 8. Análisis de un escenario de seguridad
 
-## Objetivo
+## Pregunta 1. ¿Cuáles son los principales riesgos?
 
-Analizar los riesgos de una empresa que almacena información personal y financiera sin aplicar mecanismos adecuados de protección, y proponer medidas de seguridad para reducir la posibilidad de exposición, robo o uso no autorizado de los datos.
+Los principales riesgos identificados son:
 
-## Comando o procedimiento
+- **Contraseñas en texto claro:** si alguien obtiene acceso a la base de datos, puede conocer las contraseñas de los usuarios y utilizarlas para acceder a otros sistemas.
+- **RFC en texto claro:** existe el riesgo de exposición de información personal, suplantación de identidad y uso indebido de los datos.
+- **Conexiones sin validación adecuada del servidor:** un atacante podría interceptar la comunicación o hacerse pasar por el servidor legítimo.
+- **Claves criptográficas en archivos SQL:** las claves podrían quedar expuestas en el repositorio, los respaldos o los registros de actividad, comprometiendo la información protegida.
+- **Respaldos sin protección adicional:** si una persona no autorizada obtiene una copia de seguridad, podría acceder a información confidencial sin necesidad de conectarse a la base de datos.
 
-Se revisó el escenario planteado, considerando los siguientes elementos: nombre, correo electrónico, contraseña, RFC, información financiera y claves criptográficas. También se evaluaron las debilidades relacionadas con las conexiones a la base de datos, los archivos SQL y los respaldos.
+## Pregunta 2. ¿Qué mecanismo utilizarías para cada elemento?
 
-Posteriormente, se identificaron los riesgos principales y se propusieron mecanismos de protección para cada elemento.
-
-## Resultado obtenido
-
-### Pregunta 1. ¿Cuáles son los principales riesgos?
-
-Los principales riesgos son:
-
-- **Contraseñas en texto claro:** cualquier persona con acceso de lectura a la tabla podría conocerlas directamente.
-- **RFC en texto claro:** se expone información personal que podría utilizarse de forma indebida.
-- **Conexiones sin validación adecuada del servidor:** existe el riesgo de conectarse a un servidor impostor y exponer información o credenciales.
-- **Claves criptográficas en archivos SQL:** podrían divulgarse al publicar el código en un repositorio o compartir archivos.
-- **Respaldos sin protección:** una copia robada o consultada sin autorización podría revelar toda la información almacenada.
-- **Información financiera sin protección suficiente:** puede ocasionar fraude, pérdidas económicas y afectaciones a la privacidad.
-
-### Pregunta 2. ¿Qué mecanismo utilizarías para cada elemento?
-
-| Elemento | Mecanismo de protección |
+| Elemento o problema | Mecanismo de seguridad |
 |---|---|
-| Nombre | Control de acceso y minimización de los datos almacenados; cifrado cuando el riesgo y los requisitos lo justifiquen. |
-| Correo electrónico | Control de acceso y cifrado en reposo cuando sea necesario; TLS durante la transmisión. |
-| Contraseña | Hash especializado para contraseñas, como Argon2id o bcrypt, con una configuración adecuada. |
-| RFC | Cifrado en reposo cuando corresponda, permisos restringidos y TLS durante la transmisión. |
-| Información financiera | Cifrado en reposo y en tránsito, permisos de mínimo privilegio, auditoría y protección de respaldos. |
-| Claves criptográficas | Gestor de secretos o KMS/HSM, acceso restringido, rotación, respaldo seguro y revocación cuando corresponda. |
+| Nombre y correo electrónico | Control de acceso mediante roles, privilegio mínimo y exposición limitada de los datos. |
+| Contraseñas | Almacenamiento mediante hashes seguros para contraseñas, como Argon2id o bcrypt, con sal única. Nunca guardarlas en texto claro. |
+| RFC | Cifrado cuando sea necesario proteger el dato almacenado, además de restringir el acceso y mostrar solo los datos necesarios. |
+| Información financiera | Cifrado en reposo, permisos específicos, auditoría de accesos y protección de respaldos. |
+| Claves criptográficas | Almacenarlas fuera de los archivos SQL, en un gestor de secretos o sistema de gestión de claves, con acceso restringido y rotación. |
+| Conexiones a la base de datos | Utilizar TLS con validación del certificado y de la identidad del servidor. |
+| Respaldos | Cifrarlos, limitar quién puede acceder a ellos y mantener copias protegidas y verificadas. |
 
-Además, configuraría las conexiones con TLS y validación del certificado del servidor, cifraría los respaldos y eliminaría las claves reales de los archivos SQL y repositorios.
+## Pregunta 3. ¿Cuál de los problemas consideras más crítico y por qué?
 
-### Pregunta 3. ¿Cuál de los problemas consideras más crítico y por qué?
+Considero que almacenar las contraseñas en texto claro es uno de los problemas más críticos, porque cualquier persona que obtenga acceso a la tabla podría conocerlas directamente. Además, si los usuarios reutilizan sus contraseñas, el impacto podría extenderse a otros servicios.
 
-Considero especialmente crítico el almacenamiento de contraseñas en texto claro, porque cualquier persona que obtenga acceso de lectura a la tabla podría conocerlas inmediatamente. Si los usuarios reutilizan esas contraseñas en otros servicios, el impacto puede extenderse a otras cuentas.
+También considero muy grave la exposición de las claves criptográficas, ya que un atacante podría utilizarlas para descifrar información protegida o hacerse pasar por un sistema autorizado, dependiendo de la función de cada clave. Por eso, ambos problemas deben atenderse de inmediato.
 
-La exposición de las claves criptográficas también es crítica, ya que puede permitir descifrar los datos que protegen. La gravedad final depende del alcance de la exposición, los permisos disponibles y la información comprometida.
+## Pregunta 4. ¿Tener correctamente configurados los usuarios y permisos elimina estos riesgos?
 
-### Pregunta 4. ¿Tener correctamente configurados los usuarios y permisos elimina estos riesgos?
+No. Configurar correctamente los usuarios y permisos reduce el riesgo de accesos no autorizados, pero no elimina todas las vulnerabilidades.
 
-No. Tener correctamente configurados los usuarios y permisos reduce el riesgo de accesos no autorizados, pero no elimina todas las vulnerabilidades. Una persona con permisos legítimos podría leer contraseñas almacenadas en texto claro, y los datos también podrían exponerse mediante respaldos sin cifrar, claves publicadas o conexiones sin validación adecuada del servidor.
+Por ejemplo, una persona que consiga acceso legítimo a una tabla podría leer las contraseñas si están almacenadas en texto claro. De igual manera, los permisos de la base de datos no protegen por sí solos los archivos SQL que contienen claves, las conexiones sin validación adecuada ni los respaldos sin cifrado.
 
-Por eso, el control de acceso debe complementarse con hash especializado para contraseñas, cifrado de datos sensibles, TLS, gestión segura de claves, protección de respaldos y revisión de secretos antes de publicar el código.
-
-## Análisis
-
-El escenario demuestra que una base de datos puede tener usuarios y roles correctamente configurados y, aun así, presentar riesgos importantes. La seguridad debe considerar todo el ciclo de vida de la información: almacenamiento, transmisión, respaldo, acceso y eliminación.
-
-Cada mecanismo resuelve un problema diferente. El hash protege las contraseñas sin necesidad de recuperarlas; el cifrado protege datos que deben poder recuperarse; TLS protege la comunicación, y la gestión segura de claves reduce el riesgo de que los mecanismos criptográficos sean comprometidos.
-
-## Conclusión
-
-La seguridad de la base de datos no depende únicamente de los permisos. Es necesario combinar controles de acceso con mecanismos criptográficos adecuados y prácticas seguras de administración. Aplicar estas medidas reduce la exposición de información personal, financiera y confidencial, incluso cuando ocurre un acceso no autorizado o se compromete un archivo de respaldo.
+Por lo tanto, la seguridad debe aplicarse en varias capas: control de acceso, almacenamiento seguro de contraseñas, cifrado, gestión de claves, validación de conexiones, protección de respaldos y auditoría. Estas medidas se complementan para reducir la probabilidad y el impacto de un incidente de seguridad.

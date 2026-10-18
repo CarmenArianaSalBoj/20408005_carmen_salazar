@@ -13,8 +13,9 @@ Posteriormente, se insertó un registro de prueba correspondiente a Ana López, 
 Finalmente, se consultó la tabla para observar el dato cifrado y se utilizó `pgp_sym_decrypt()` con la misma clave para recuperar el RFC original.
 
 ## Imagenes
-![evidencia]../imagenes/EVIDENCIA ACTIVIDAD 2.jpg)
-![evidencia]../imagenes/EVIDENCIA ACTIVIDAD 2.1.jpg)
+![Evidencia](../imagenes/EVIDENCIA%20ACTIVIDAD%202.jpg)
+
+![Evidencia](../imagenes/EVIDENCIA%20ACTIVIDAD%202.1.jpg)
 
 ## Resultado obtenido
 
