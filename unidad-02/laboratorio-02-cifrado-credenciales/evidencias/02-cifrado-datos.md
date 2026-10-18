@@ -12,6 +12,10 @@ Posteriormente, se insertó un registro de prueba correspondiente a Ana López, 
 
 Finalmente, se consultó la tabla para observar el dato cifrado y se utilizó `pgp_sym_decrypt()` con la misma clave para recuperar el RFC original.
 
+## Imagenes
+![evidencia](EVIDENCIA ACTIVIDAD 2.jpg)
+![evidencia](EVIDENCIA ACTIVIDAD 2.1.jpg)
+
 ## Resultado obtenido
 
 Al consultar la tabla `clientes_protegidos`, el campo `rfc_cifrado` mostró datos binarios cifrados en lugar del RFC original. Al ejecutar la consulta de descifrado con la clave correcta, se recuperó el RFC `LOPA900101ABC`.

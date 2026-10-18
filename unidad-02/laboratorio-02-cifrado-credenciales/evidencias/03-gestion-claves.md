@@ -10,6 +10,7 @@ Se creó un archivo temporal llamado `sql/ejemplo-mala-practica.sql` con una con
 
 Posteriormente, se analizó el archivo para identificar los riesgos de incluir una clave directamente en el código fuente y se consideraron las posibles consecuencias de publicar este archivo en un repositorio Git.
 
+
 ## Resultado obtenido
 
 Se identificó que la clave de cifrado aparece directamente en la consulta SQL. Esto significa que cualquier persona que tenga acceso al archivo puede conocer la clave utilizada en la demostración. Aunque el valor empleado es ficticio, la práctica permite comprender el riesgo de exponer secretos dentro del código.
