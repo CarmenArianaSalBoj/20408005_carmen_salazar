@@ -14,13 +14,13 @@ Finalmente, se ejecutó la consulta `SELECT * FROM usuarios_insegura;` para visu
 
 La consulta mostró el nombre de usuario `juan` y su contraseña `Password123` directamente en los resultados. Esto demuestra que la contraseña se almacenó en texto plano, sin ningún mecanismo de protección.
 ## Evidencias en imagen
-![evidencia](EVIDENCIA ACTIVIDAD 1.jpg)
+![evidencia](imagenes/EVIDENCIA ACTIVIDAD 1.jpg)
 
-![evidencia](EVIDENCIA ACTIVIDAD 1.1.jpg)
+![evidencia](imagenes/EVIDENCIA ACTIVIDAD 1.1.jpg)
 
-![evidencia](EVIDENCIA ACTIVIDAD 1.2.jpg)
+![evidencia](imagenes/EVIDENCIA ACTIVIDAD 1.2.jpg)
 
-![evidencia](EVIDENCIA ACTIVIDAD 1.3.jpg)
+![evidencia](imagenes/EVIDENCIA ACTIVIDAD 1.3.jpg)
 ## 7.1
 
 **¿Qué ocurriría si una persona obtiene acceso de lectura a esta tabla?**

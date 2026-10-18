@@ -11,7 +11,7 @@ Se analizó el riesgo de ejecutar consultas SQL, como `SELECT * FROM clientes;`,
 Se identificó TLS como un mecanismo que permite proteger la comunicación mediante cifrado y, cuando está correctamente configurado y verificado, ayuda a autenticar el servidor. Para comprobar la protección de una conexión real, es necesario revisar la configuración de TLS y verificar que la sesión utiliza una conexión cifrada.
 
 ##Imagen 
-![evidencia](EVIDENCIAS ACTIVIDAD 4.jpg)
+![evidencia](imagenes/EVIDENCIAS ACTIVIDAD 4.jpg)
 ## Resultado obtenido
 
 Se identificó que los datos almacenados en una base de datos no son la única información que necesita protección. También es necesario proteger los datos que se transmiten entre el cliente y PostgreSQL. Una conexión sin cifrado puede exponer información a personas que tengan la capacidad de observar el tráfico de red.
