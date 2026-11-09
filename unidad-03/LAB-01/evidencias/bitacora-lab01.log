@@ -1,0 +1,184 @@
+2026-11-03 01:20:17.317 UTC [1] LOG:  starting PostgreSQL 16.14 (Debian 16.14-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-11-03 01:20:17.318 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-11-03 01:20:17.318 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-11-03 01:20:17.326 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-03 01:20:17.339 UTC [30] LOG:  database system was shut down at 2026-11-03 01:20:16 UTC
+2026-11-03 01:20:17.357 UTC [1] LOG:  database system is ready to accept connections
+2026-11-03 01:25:17.166 UTC [28] LOG:  checkpoint starting: time
+2026-11-03 01:25:19.881 UTC [28] LOG:  checkpoint complete: wrote 29 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.685 s, sync=0.013 s, total=2.716 s; sync files=24, longest=0.004 s, average=0.001 s; distance=106 kB, estimate=106 kB; lsn=0/19A5368, redo lsn=0/19A5330
+2026-11-03 01:50:17.792 UTC [28] LOG:  checkpoint starting: time
+2026-11-03 01:50:17.952 UTC [28] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.110 s, sync=0.009 s, total=0.161 s; sync files=2, longest=0.006 s, average=0.005 s; distance=1 kB, estimate=96 kB; lsn=0/19A5820, redo lsn=0/19A57E8
+2026-11-03 02:11:38.209 UTC [1] LOG:  received SIGHUP, reloading configuration files
+2026-11-03 02:11:38.211 UTC [1] LOG:  parameter "log_connections" changed to "on"
+2026-11-03 02:11:38.211 UTC [1] LOG:  parameter "log_disconnections" changed to "on"
+2026-11-03 02:11:38.211 UTC [1] user= db= app= client= LOG:  parameter "log_line_prefix" changed to "%m [%p] user=%u db=%d app=%a client=%h "
+2026-11-03 02:11:38.211 UTC [1] user= db= app= client= LOG:  parameter "log_statement" changed to "ddl"
+2026-11-03 02:12:53.385 UTC [236] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 02:12:53.387 UTC [236] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 02:30:07.855 UTC [236] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:17:14.470 user=postgres database=comercial host=[local]
+2026-11-03 02:30:20.931 UTC [296] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=39216
+2026-11-03 02:30:20.948 UTC [296] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 FATAL:  password authentication failed for user "app_ventas"
+2026-11-03 02:30:20.948 UTC [296] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 DETAIL:  Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
+2026-11-03 02:30:35.049 UTC [297] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=58832
+2026-11-03 02:30:35.061 UTC [297] user=usuario_inexistente db=comercial app=[unknown] client=172.17.0.1 FATAL:  password authentication failed for user "usuario_inexistente"
+2026-11-03 02:30:35.061 UTC [297] user=usuario_inexistente db=comercial app=[unknown] client=172.17.0.1 DETAIL:  Role "usuario_inexistente" does not exist.
+	Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
+2026-11-03 02:30:48.371 UTC [299] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=49892
+2026-11-03 02:30:48.381 UTC [299] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="app_ventas" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 02:30:48.381 UTC [299] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=app_ventas database=comercial application_name=app-ventas-web
+2026-11-03 02:30:48.391 UTC [299] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.020 user=app_ventas database=comercial host=172.17.0.1 port=49892
+2026-11-03 02:31:17.438 UTC [308] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 02:31:17.440 UTC [308] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 02:51:15.897 UTC [308] user=postgres db=comercial app=psql client=[local] LOG:  statement: REVOKE UPDATE ON clientes FROM soporte_ana;
+2026-11-03 02:51:22.707 UTC [308] user=postgres db=comercial app=psql client=[local] LOG:  statement: GRANT UPDATE ON clientes TO app_ventas;
+2026-11-03 02:51:28.772 UTC [308] user=postgres db=comercial app=psql client=[local] LOG:  statement: ALTER TABLE clientes ADD COLUMN segmento VARCHAR(20);
+2026-11-03 02:52:01.269 UTC [308] user=postgres db=comercial app=psql client=[local] LOG:  statement: CREATE ROLE rol_temporal LOGIN PASSWORD '<REDACTED>';
+2026-11-03 02:52:10.950 UTC [308] user=postgres db=comercial app=psql client=[local] LOG:  statement: DROP ROLE rol_temporal;
+2026-11-03 02:55:17.629 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 02:55:18.532 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.845 s, sync=0.021 s, total=0.905 s; sync files=9, longest=0.019 s, average=0.003 s; distance=20 kB, estimate=88 kB; lsn=0/19AA9B0, redo lsn=0/19AA978
+2026-11-03 03:05:38.520 UTC [308] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:34:21.082 user=postgres database=comercial host=[local]
+2026-11-03 03:05:43.564 UTC [421] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=49446
+2026-11-03 03:05:43.578 UTC [421] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="app_ventas" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 03:05:43.578 UTC [421] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=app_ventas database=comercial application_name=app-ventas-web
+2026-11-03 03:05:43.590 UTC [421] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.025 user=app_ventas database=comercial host=172.17.0.1 port=49446
+2026-11-03 03:06:09.955 UTC [429] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 03:06:09.956 UTC [429] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 03:10:17.810 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 03:10:18.084 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.215 s, sync=0.008 s, total=0.275 s; sync files=3, longest=0.005 s, average=0.003 s; distance=1 kB, estimate=79 kB; lsn=0/19AAEF0, redo lsn=0/19AAEB8
+2026-11-03 03:10:26.376 UTC [429] user=postgres db=comercial app=psql client=[local] LOG:  statement: ALTER SYSTEM SET log_statement = 'mod';
+2026-11-03 03:10:34.019 UTC [1] user= db= app= client= LOG:  received SIGHUP, reloading configuration files
+2026-11-03 03:10:34.022 UTC [1] user= db= app= client= LOG:  parameter "log_statement" changed to "mod"
+2026-11-03 03:10:55.927 UTC [429] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:04:45.972 user=postgres database=comercial host=[local]
+2026-11-03 03:11:03.212 UTC [448] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=47586
+2026-11-03 03:11:03.222 UTC [448] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="app_ventas" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 03:11:03.222 UTC [448] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=app_ventas database=comercial application_name=app-ventas-web
+2026-11-03 03:11:03.225 UTC [448] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  statement: UPDATE clientes SET telefono = '6679990000' WHERE id = 3
+2026-11-03 03:11:03.245 UTC [448] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.032 user=app_ventas database=comercial host=172.17.0.1 port=47586
+2026-11-03 03:11:23.413 UTC [456] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 03:11:23.414 UTC [456] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 03:15:17.222 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 03:15:17.373 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.106 s, sync=0.007 s, total=0.151 s; sync files=2, longest=0.005 s, average=0.004 s; distance=1 kB, estimate=71 kB; lsn=0/19AB4C0, redo lsn=0/19AB488
+2026-11-03 04:12:40.543 UTC [456] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 1:01:17.129 user=postgres database=comercial host=[local]
+2026-11-03 04:12:49.162 UTC [525] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=57890
+2026-11-03 04:12:49.174 UTC [525] user=soporte_ana db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="soporte_ana" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 04:12:49.174 UTC [525] user=soporte_ana db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=soporte_ana database=comercial application_name=psql
+2026-11-03 04:12:49.177 UTC [525] user=soporte_ana db=comercial app=psql client=172.17.0.1 LOG:  statement: DELETE FROM clientes WHERE id = 5
+2026-11-03 04:12:49.179 UTC [525] user=soporte_ana db=comercial app=psql client=172.17.0.1 ERROR:  permission denied for table clientes
+2026-11-03 04:12:49.179 UTC [525] user=soporte_ana db=comercial app=psql client=172.17.0.1 STATEMENT:  DELETE FROM clientes WHERE id = 5
+2026-11-03 04:12:49.180 UTC [525] user=soporte_ana db=comercial app=psql client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.018 user=soporte_ana database=comercial host=172.17.0.1 port=57890
+2026-11-03 04:13:02.052 UTC [533] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 04:13:02.054 UTC [533] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 04:13:41.499 UTC [533] user=postgres db=comercial app=psql client=[local] LOG:  statement: DROP ROLE soporte_ana;
+2026-11-03 04:13:41.501 UTC [533] user=postgres db=comercial app=psql client=[local] ERROR:  role "soporte_ana" cannot be dropped because some objects depend on it
+2026-11-03 04:13:41.501 UTC [533] user=postgres db=comercial app=psql client=[local] DETAIL:  privileges for table clientes
+2026-11-03 04:13:41.501 UTC [533] user=postgres db=comercial app=psql client=[local] STATEMENT:  DROP ROLE soporte_ana;
+2026-11-03 04:24:40.964 UTC [533] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:11:38.912 user=postgres database=comercial host=[local]
+2026-11-03 04:25:00.867 UTC [569] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=43670
+2026-11-03 04:25:00.885 UTC [569] user=soporte_ana db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="soporte_ana" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 04:25:00.885 UTC [569] user=soporte_ana db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=soporte_ana database=comercial application_name=reporte-mensual
+2026-11-03 04:25:19.772 UTC [571] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=59038
+2026-11-03 04:25:19.787 UTC [569] user=soporte_ana db=comercial app=reporte-mensual client=172.17.0.1 ERROR:  canceling statement due to user request
+2026-11-03 04:25:19.787 UTC [569] user=soporte_ana db=comercial app=reporte-mensual client=172.17.0.1 STATEMENT:  SELECT pg_sleep(90)
+2026-11-03 04:25:19.789 UTC [569] user=soporte_ana db=comercial app=reporte-mensual client=172.17.0.1 LOG:  disconnection: session time: 0:00:18.922 user=soporte_ana database=comercial host=172.17.0.1 port=43670
+2026-11-03 04:25:36.520 UTC [579] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 04:25:36.522 UTC [579] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 04:41:14.619 UTC [579] user=postgres db=comercial app=psql client=[local] LOG:  statement: CREATE SCHEMA auditoria;
+2026-11-03 04:41:22.070 UTC [579] user=postgres db=comercial app=psql client=[local] LOG:  statement: REVOKE ALL ON SCHEMA auditoria FROM PUBLIC;
+2026-11-03 04:41:31.897 UTC [579] user=postgres db=comercial app=psql client=[local] LOG:  statement: CREATE TABLE auditoria.cambios_clientes (
+	    id_evento        BIGSERIAL PRIMARY KEY,
+	    momento          TIMESTAMPTZ NOT NULL DEFAULT now(),
+	    usuario_sesion   TEXT        NOT NULL DEFAULT session_user,
+	    usuario_efectivo TEXT        NOT NULL DEFAULT current_user,
+	    aplicacion       TEXT        DEFAULT current_setting('application_name'),
+	    ip_cliente       INET        DEFAULT inet_client_addr(),
+	    operacion        TEXT        NOT NULL,
+	    id_cliente       BIGINT,
+	    valores_antes    JSONB,
+	    valores_despues  JSONB
+	);
+2026-11-03 04:42:00.636 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 04:42:05.767 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 51 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.061 s, sync=0.034 s, total=5.135 s; sync files=42, longest=0.019 s, average=0.001 s; distance=180 kB, estimate=180 kB; lsn=0/19DA1E8, redo lsn=0/19D86F0
+2026-11-03 04:56:50.389 UTC [579] user=postgres db=comercial app=psql client=[local] LOG:  statement: CREATE OR REPLACE FUNCTION auditoria.registrar_cambio_cliente()
+	RETURNS trigger
+	LANGUAGE plpgsql
+	SECURITY DEFINER
+	SET search_path = pg_catalog, public
+	AS $$
+	BEGIN
+	    IF TG_OP = 'INSERT' THEN
+	        INSERT INTO auditoria.cambios_clientes (operacion, id_cliente, valores_despues)
+	        VALUES (TG_OP, NEW.id, to_jsonb(NEW));
+	        RETURN NEW;
+	    ELSIF TG_OP = 'UPDATE' THEN
+	        INSERT INTO auditoria.cambios_clientes (operacion, id_cliente, valores_antes, valores_despues)
+	        VALUES (TG_OP, NEW.id, to_jsonb(OLD), to_jsonb(NEW));
+	        RETURN NEW;
+	    ELSIF TG_OP = 'DELETE' THEN
+	        INSERT INTO auditoria.cambios_clientes (operacion, id_cliente, valores_antes)
+	        VALUES (TG_OP, OLD.id, to_jsonb(OLD));
+	        RETURN OLD;
+	    END IF;
+	    RETURN NULL;
+	END;
+	$$;
+2026-11-03 04:56:57.404 UTC [579] user=postgres db=comercial app=psql client=[local] LOG:  statement: REVOKE ALL ON FUNCTION auditoria.registrar_cambio_cliente() FROM PUBLIC;
+2026-11-03 04:57:14.494 UTC [579] user=postgres db=comercial app=psql client=[local] LOG:  statement: CREATE TRIGGER trg_auditoria_clientes
+	AFTER INSERT OR UPDATE OR DELETE ON clientes
+	FOR EACH ROW EXECUTE FUNCTION auditoria.registrar_cambio_cliente();
+2026-11-03 04:57:17.087 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 04:57:19.260 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 22 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.117 s, sync=0.027 s, total=2.173 s; sync files=15, longest=0.020 s, average=0.002 s; distance=73 kB, estimate=169 kB; lsn=0/19EAC98, redo lsn=0/19EAC60
+2026-11-03 05:00:12.143 UTC [579] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:34:35.622 user=postgres database=comercial host=[local]
+2026-11-03 05:00:19.390 UTC [684] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=46926
+2026-11-03 05:00:19.409 UTC [684] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="app_ventas" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 05:00:19.409 UTC [684] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=app_ventas database=comercial application_name=app-ventas-web
+2026-11-03 05:00:19.413 UTC [684] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  statement: UPDATE clientes SET rfc = 'GAMA780912ZZZ' WHERE id = 3
+2026-11-03 05:00:19.445 UTC [684] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.055 user=app_ventas database=comercial host=172.17.0.1 port=46926
+2026-11-03 05:00:32.094 UTC [686] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=60380
+2026-11-03 05:00:32.110 UTC [686] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="app_ventas" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 05:00:32.110 UTC [686] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=app_ventas database=comercial application_name=psql
+2026-11-03 05:00:32.114 UTC [686] user=app_ventas db=comercial app=psql client=172.17.0.1 ERROR:  permission denied for schema auditoria at character 15
+2026-11-03 05:00:32.114 UTC [686] user=app_ventas db=comercial app=psql client=172.17.0.1 STATEMENT:  SELECT * FROM auditoria.cambios_clientes
+2026-11-03 05:00:32.115 UTC [686] user=app_ventas db=comercial app=psql client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.021 user=app_ventas database=comercial host=172.17.0.1 port=60380
+2026-11-03 05:00:53.042 UTC [693] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 05:00:53.044 UTC [693] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 05:02:22.489 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 05:02:23.348 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.810 s, sync=0.023 s, total=0.859 s; sync files=8, longest=0.019 s, average=0.003 s; distance=2 kB, estimate=153 kB; lsn=0/19EB6C8, redo lsn=0/19EB690
+2026-11-03 05:11:27.537 UTC [693] user=postgres db=comercial app=psql client=[local] LOG:  statement: INSERT INTO clientes (nombre, correo, rfc, edad, ciudad, codigo_postal)
+	VALUES ('Pedro Ruiz', 'pedro.ruiz@example.test', 'RUPE950101AAA', 30, 'Guasave', '81000');
+2026-11-03 05:11:34.835 UTC [693] user=postgres db=comercial app=psql client=[local] LOG:  statement: DELETE FROM clientes WHERE nombre = 'Pedro Ruiz';
+2026-11-03 05:12:33.488 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 05:12:34.153 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.608 s, sync=0.023 s, total=0.666 s; sync files=7, longest=0.020 s, average=0.004 s; distance=3 kB, estimate=138 kB; lsn=0/19EC640, redo lsn=0/19EC608
+2026-11-03 05:19:39.513 UTC [693] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:18:46.471 user=postgres database=comercial host=[local]
+2026-11-03 05:19:45.130 UTC [751] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=58690
+2026-11-03 05:19:45.147 UTC [751] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="app_ventas" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 05:19:45.147 UTC [751] user=app_ventas db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=app_ventas database=comercial application_name=app-ventas-web
+2026-11-03 05:19:45.149 UTC [751] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  statement: DELETE FROM auditoria.cambios_clientes
+2026-11-03 05:19:45.150 UTC [751] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 ERROR:  permission denied for schema auditoria at character 13
+2026-11-03 05:19:45.150 UTC [751] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 STATEMENT:  DELETE FROM auditoria.cambios_clientes
+2026-11-03 05:19:45.150 UTC [751] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  statement: ALTER TABLE clientes DISABLE TRIGGER trg_auditoria_clientes
+2026-11-03 05:19:45.151 UTC [751] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 ERROR:  must be owner of table clientes
+2026-11-03 05:19:45.151 UTC [751] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 STATEMENT:  ALTER TABLE clientes DISABLE TRIGGER trg_auditoria_clientes
+2026-11-03 05:19:45.152 UTC [751] user=app_ventas db=comercial app=app-ventas-web client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.022 user=app_ventas database=comercial host=172.17.0.1 port=58690
+2026-11-03 05:20:01.246 UTC [758] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 05:20:01.247 UTC [758] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 05:20:07.303 UTC [758] user=postgres db=comercial app=psql client=[local] LOG:  statement: ALTER TABLE clientes DISABLE TRIGGER trg_auditoria_clientes;
+2026-11-03 05:20:13.347 UTC [758] user=postgres db=comercial app=psql client=[local] LOG:  statement: UPDATE clientes SET rfc = 'GAMA780912GHI' WHERE id = 3;
+2026-11-03 05:20:18.548 UTC [758] user=postgres db=comercial app=psql client=[local] LOG:  statement: ALTER TABLE clientes ENABLE TRIGGER trg_auditoria_clientes;
+2026-11-03 05:22:43.613 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 05:22:43.868 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.206 s, sync=0.021 s, total=0.256 s; sync files=3, longest=0.018 s, average=0.007 s; distance=2 kB, estimate=124 kB; lsn=0/19ED060, redo lsn=0/19ED028
+2026-11-03 05:49:20.991 UTC [758] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:29:19.745 user=postgres database=comercial host=[local]
+2026-11-03 05:49:27.646 UTC [821] user=[unknown] db=[unknown] app=[unknown] client=172.17.0.1 LOG:  connection received: host=172.17.0.1 port=48664
+2026-11-03 05:49:27.658 UTC [821] user=soporte_ana db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authenticated: identity="soporte_ana" method=scram-sha-256 (/var/lib/postgresql/data/pg_hba.conf:128)
+2026-11-03 05:49:27.658 UTC [821] user=soporte_ana db=comercial app=[unknown] client=172.17.0.1 LOG:  connection authorized: user=soporte_ana database=comercial application_name=psql
+2026-11-03 05:49:27.664 UTC [821] user=soporte_ana db=comercial app=psql client=172.17.0.1 LOG:  disconnection: session time: 0:00:00.018 user=soporte_ana database=comercial host=172.17.0.1 port=48664
+2026-11-03 05:49:41.828 UTC [829] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 05:49:41.829 UTC [829] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 05:49:47.360 UTC [829] user=postgres db=comercial app=psql client=[local] LOG:  statement: UPDATE clientes SET segmento = 'regular';
+2026-11-03 05:52:22.157 UTC [28] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-03 05:52:22.619 UTC [28] user= db= app= client= LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.406 s, sync=0.023 s, total=0.462 s; sync files=5, longest=0.020 s, average=0.005 s; distance=7 kB, estimate=112 kB; lsn=0/19EEDC0, redo lsn=0/19EED88
+2026-11-03 06:00:08.726 UTC [869] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 06:00:08.727 UTC [869] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+2026-11-03 06:00:08.735 UTC [869] user=postgres db=comercial app=psql client=[local] LOG:  disconnection: session time: 0:00:00.009 user=postgres database=comercial host=[local]
+2026-11-03 06:00:31.666 UTC [877] user=[unknown] db=[unknown] app=[unknown] client=[local] LOG:  connection received: host=[local]
+2026-11-03 06:00:31.667 UTC [877] user=postgres db=comercial app=[unknown] client=[local] LOG:  connection authorized: user=postgres database=comercial application_name=psql
+
